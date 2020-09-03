@@ -12,7 +12,9 @@ this approach is O(3^n), worst case is when none of the characters in the string
 function deletionDistance(str1, str2, s1Len = str1.length, s2Len = str2.length) {
   /* process each character starting from the left or right */
 
-  // if either string is empty, we can only return the other string | thus we're inserting
+  // if either string is empty, we return the string
+  /* Explanation: due to how our function is setup, we keep subtracting the length of the array & compare the values, once our base case hits,
+  .. the 0 length, we place that value onto the call stack. then we keep going & finally return the minimum value off the stack */
   if (s1Len === 0) return s2Len;
   if (s2Len === 0) return s1Len;
 
@@ -25,6 +27,9 @@ function deletionDistance(str1, str2, s1Len = str1.length, s2Len = str2.length) 
 
 // add deletionDistance(str1, str2, s1Len - 1, s2Len - 1) to the last return on line 21 to compare str2's minimum to the first
 
-console.log(deletionDistance('some', 'thing'));
-console.log(deletionDistance('dog', 'frog'));
-console.log(deletionDistance('', ''));
+deletionDistance('some', 'thing'); // 9 -> stepping down the 2nd string until we find a match, it ends up being both strings combined since nothing matches | then we keep returning off the call stack
+deletionDistance('dog', 'frog'); // 3
+deletionDistance('', ''); // 0
+
+/* now lets implement an approach where we use dynamic programming */
+function deletionDistanceV2(str1, str2, s1Len = str1.length, s2Len = str2.length) {}
