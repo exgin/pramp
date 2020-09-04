@@ -38,7 +38,7 @@ function deletionDistanceV2(str1, str2, str1Len = str1.length, str2Len = str2.le
     /* create a matrix based off the 1st arrays length */
     memo.push([]);
     memo[i].push(new Array(str2Len));
-    console.log(memo);
+    console.table(memo);
     for (let j = 0; j <= str2Len; j++) {
       /* base case: if a string is another, fill up col/row with the oppostie string's length */
       if (i === 0) {
@@ -55,6 +55,7 @@ function deletionDistanceV2(str1, str2, str1Len = str1.length, str2Len = str2.le
       }
     }
   }
+
   /* return the bottom right value, remember we're only doing deletion */
   return memo[str1Len][str2Len];
 }
@@ -68,7 +69,6 @@ function editDistance(str1, str2, str1Len = str1.length, str2Len = str2.length) 
   for (let i = 0; i <= str1Len; i++) {
     memo.push([]);
     memo[i].push(new Array(str2Len));
-    console.log(memo);
     for (let j = 0; j <= str2Len; j++) {
       if (i === 0) {
         memo[i][j] = j;

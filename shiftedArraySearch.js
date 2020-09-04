@@ -13,6 +13,7 @@
         shiftedArrSearch([3,4,5,6,7,1,2]
 
         left is smaller | right is larger
+Approach: divide & conquer, binary search
 */
 
 function shiftedArrSearch(shiftArr, target, start = 0, end = shiftArr.length - 1) {
